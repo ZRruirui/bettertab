@@ -1,6 +1,12 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue","node_modules/chrome-types"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "node_modules/chrome-types",
+    "node_modules/@vue/runtime-core/dist/runtime-core.d.ts"
+  ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
@@ -9,5 +15,5 @@
       "@/*": ["./src/*"]
     },
     "verbatimModuleSyntax": false
-  },
+  }
 }

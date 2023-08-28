@@ -17,9 +17,13 @@
     "http://*/*"
   ],
   "action": {
-    "default_popup": "index.html"
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "index.html"
   },
   "permissions": [
-    "tabGroups"
+    "tabGroups",
+    "sidePanel"
   ]
 }

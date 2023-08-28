@@ -1,23 +1,27 @@
 <script setup lang="ts">
 import {onMounted, Ref, ref} from "vue";
 import Tab = chrome.tabs.Tab;
+import Group from "@/components/group/Group.vue"
+
 
 const tabs: Ref<Tab[]> = ref([])
-const addr = window.location.href
 onMounted(async () => {
    tabs.value = await chrome.tabs.query({});
+   // tabs.value = [{id: 1, title: "name1"} as Tab,{id: 2, title: "name2"} as Tab]
 })
 console.log(tabs)
 
 </script>
 
 <template>
-  <div>
-    {{JSON.stringify((tabs))}}}
-    {{addr}}
-    <li v-for="tab in tabs" :key="tab.id">{{tab.title}}</li>
-  </div>
+  <el-row>
+    <Group :groups='tabs'></Group>
+  </el-row>
 </template>
 
-<style scoped>
+<style scoped lang='less'>
+.group-container{
+  display: block;
+  width: 100%;
+}
 </style>
