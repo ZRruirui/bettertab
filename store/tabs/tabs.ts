@@ -7,6 +7,7 @@ export const tabsManger = createSlice({
   },
   reducers: {
     addTab: (state, action) => {
+      console.log("init state", state)
       state.tabs.push(action.payload)
     },
     init:(state, action) => {

@@ -31,7 +31,9 @@
       "http://*/*"
     ],
     "permissions": [
-      "scripting"
+      "scripting",
+      "activeTab",
+      "tabGroups"
     ]
   }
 }

@@ -8,7 +8,7 @@ export const config: PlasmoCSConfig = {
   world: "MAIN"
 }
 
-export default function PlasmoMainUI() {
+export default async function PlasmoMainUI() {
   return (
     <div
       style={{
@@ -16,12 +16,7 @@ export default function PlasmoMainUI() {
         background: "purple",
         color: "white"
       }}>
-      {/*window.tabs.map(tab => {*/}
-      {/*<li key={tab.id}>*/}
-      {/*  {tab.title}*/}
-      {/*</li>*/}
-    })
-      {/*<h1>{`Message:` + window.mainMessage}</h1>*/}
+      {`ssss`}
     </div>
   )
 }

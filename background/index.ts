@@ -1,33 +1,21 @@
-import windowChanger from "./injected-helper"
 import store from "~store"
-import { useSelector } from 'react-redux'
-
-const inject = async (tabId: number) => {
-  chrome.scripting.executeScript(
-    {
-      target: {
-        tabId
-      },
-      world: "MAIN",
-      func: windowChanger
-    },
-    () => {
-      InitTabs()
-    }
-  )
-}
+import { addTab } from '~store/tabs/tabs'
 
 async function InitTabs(){
   const tabs = await chrome.tabs.query({});
-  console.log(tabs)
-
+  console.log("init tabs:",tabs)
+  store.dispatch(addTab)
 }
 
+chrome.runtime.onInstalled.addListener(() => {
+  InitTabs()
+});
 
-// Simple example showing how to inject.
-// You can inject however you'd like to, doesn't have
-// to be with chrome.tabs.onActivated
-chrome.tabs.onActivated.addListener((e) => {
-  inject(e.tabId)
-})
 
+// 点击图标跳转，跳转到 admin 管理页面
+const extensionIconClickListener = () => {
+  const url  = chrome.runtime.getURL("/tabs/admin.html")
+  chrome.tabs.create({ url:url });
+};
+
+chrome.action.onClicked.addListener(extensionIconClickListener);
