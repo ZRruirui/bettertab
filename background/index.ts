@@ -1,4 +1,6 @@
 import windowChanger from "./injected-helper"
+import store from "~store"
+import { useSelector } from 'react-redux'
 
 const inject = async (tabId: number) => {
   chrome.scripting.executeScript(
@@ -6,14 +8,21 @@ const inject = async (tabId: number) => {
       target: {
         tabId
       },
-      world: "MAIN", // MAIN in order to access the window object
+      world: "MAIN",
       func: windowChanger
     },
     () => {
-      console.log("Background script got callback after injection")
+      InitTabs()
     }
   )
 }
+
+async function InitTabs(){
+  const tabs = await chrome.tabs.query({});
+  console.log(tabs)
+
+}
+
 
 // Simple example showing how to inject.
 // You can inject however you'd like to, doesn't have
@@ -21,3 +30,4 @@ const inject = async (tabId: number) => {
 chrome.tabs.onActivated.addListener((e) => {
   inject(e.tabId)
 })
+

@@ -8,5 +8,3 @@ export const config: PlasmoCSConfig = {
   world: "MAIN",
   run_at: "document_start"
 }
-
-window.mainMessage = "Sometimes a feeling is all we humans have to go on."

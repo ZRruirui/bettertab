@@ -16,7 +16,12 @@ export default function PlasmoMainUI() {
         background: "purple",
         color: "white"
       }}>
-      <h1>{`Message:` + window.mainMessage}</h1>
+      {/*window.tabs.map(tab => {*/}
+      {/*<li key={tab.id}>*/}
+      {/*  {tab.title}*/}
+      {/*</li>*/}
+    })
+      {/*<h1>{`Message:` + window.mainMessage}</h1>*/}
     </div>
   )
 }
